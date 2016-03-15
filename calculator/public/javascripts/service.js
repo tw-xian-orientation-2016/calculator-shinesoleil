@@ -27,3 +27,14 @@ Service.prototype.getMinus = function (callback) {
       callback(result);
     });
 };
+
+Service.prototype.getPercent = function (callback) {
+  $.ajax({
+      type: 'POST',
+      url: '/percent',
+      data: {num: this.currentNum}
+    })
+    .done(function (result) {
+      callback(result);
+    });
+};

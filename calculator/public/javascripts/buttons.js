@@ -52,6 +52,11 @@ $(document).ready(function () {
     service.currentNum = $('#screen').val();
     service.getMinus(set);
   })
+
+  $('#percent').click(function() {
+    service.currentNum = $('#screen').val();
+    service.getPercent(set);
+  })
 });
 
 
