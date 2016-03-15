@@ -6,3 +6,11 @@ body {
 a {
   color: #00B7FF;
 }
+
+input {
+  height: 70px;
+}
+
+.btn {
+  height: 70px
+}
