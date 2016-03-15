@@ -28,4 +28,13 @@ router.post('/product', function(req, res, next) {
   res.send(result.toString());
 });
 
+router.post('/quotient', function(req, res, next) {
+  var firstNum = req.body.firstNum;
+  var secondNum = req.body.secondNum;
+
+  var result = parseFloat(firstNum) / parseFloat(secondNum);
+
+  res.send(result.toString());
+});
+
 module.exports = router;
