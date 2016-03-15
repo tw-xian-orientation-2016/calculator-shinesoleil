@@ -1,13 +1,17 @@
 function Service() {
+  this.firstNum;
+  this.secondNum;
+  this.mark;
 };
 
-Service.prototype.getSum = function(firstNum, secondNum, callback) {
+Service.prototype.getSum = function(service, callback) {
     $.ajax({
         type:'POST',
         url: '/sum',
-        data: {firstNum: firstNum, secondNum: secondNum}
+        data: {firstNum: this.firstNum, secondNum: this.secondNum}
     })
         .done(function (result) {
+          service.firstNum = result;
           callback(result);
         });
 };

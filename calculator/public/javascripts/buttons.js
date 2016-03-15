@@ -6,11 +6,14 @@ $('.btn-number').click(function () {
     number = '.';
   }
 
+
   $('#screen').val(screen + number);
 });
 
-function setScreen(value) {
+function set(value) {
   $('#screen').val(value);
+  this.firstNum = value;
+  console.log(this.firstNum);
 }
 
 function addButton() {
@@ -26,18 +29,16 @@ function addButton() {
 }
 
 $(document).ready(function () {
-  var firstNum, secondNum;
-  var mark;
-
   var service = new Service();
 
-  $('#sum').click(function () {
-    if(firstNum === undefined) {
-      firstNum = $('#screen').val();
-      mark = 'sum';
+  $('.btn-mark').click(function () {
+    if(service.firstNum === undefined) {
+      service.firstNum = $('#screen').val();
+      service.mark = 'sum';
     } else {
-      secondNum = $('#screen').val();
-      service.getSum(firstNum, secondNum, setScreen);
+      service.secondNum = $('#screen').val();
+
+      service.getSum(service, set);
     }
   })
 });

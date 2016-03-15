@@ -1,14 +1,17 @@
 var express = require('express');
 var router = express.Router();
 
+router.get('/', function(req, res, next) {
+  res.sendfile('public/html/index.html')
+});
+
 router.post('/sum', function(req, res, next) {
   var firstNum = req.body.firstNum;
   var secondNum = req.body.secondNum;
 
-  console.log(firstNum);
-
   var result = parseFloat(firstNum) + parseFloat(secondNum);
 
+  console.log(result)
   res.send(result.toString());
 });
 
