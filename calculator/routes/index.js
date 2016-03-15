@@ -45,4 +45,13 @@ router.post('/minus', function(req, res, next) {
 
   res.send(result.toString());
 });
+
+router.post('/percent', function(req, res, next) {
+  var num = req.body.num;
+
+  var result = parseFloat(num) / 100;
+
+  res.send(result.toString());
+});
+
 module.exports = router;
