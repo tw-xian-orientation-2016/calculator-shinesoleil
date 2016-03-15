@@ -5,6 +5,8 @@ router.post('/sum', function(req, res, next) {
   var firstNum = req.body.firstNum;
   var secondNum = req.body.secondNum;
 
+  console.log(firstNum);
+
   var result = parseFloat(firstNum) + parseFloat(secondNum);
 
   res.send(result.toString());
