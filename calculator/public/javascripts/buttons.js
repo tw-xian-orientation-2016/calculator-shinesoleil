@@ -12,8 +12,6 @@ $('.btn-number').click(function () {
 
 function set(value) {
   $('#screen').val(value);
-  this.firstNum = value;
-  console.log(this.firstNum);
 }
 
 function addButton() {
@@ -40,6 +38,19 @@ $(document).ready(function () {
 
       service.getSum(service, set);
     }
+  });
+
+  $('#ac').click(function () {
+    service.firstNum = undefined;
+    service.secondNum = undefined;
+    service.mark = undefined;
+
+    $('#screen').val('');
+  });
+
+  $('#minus').click(function () {
+    service.currentNum = $('#screen').val();
+    service.getMinus(set);
   })
 });
 
