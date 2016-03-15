@@ -37,4 +37,12 @@ router.post('/quotient', function(req, res, next) {
   res.send(result.toString());
 });
 
+
+router.post('/minus', function(req, res, next) {
+  var num = req.body.num;
+
+  var result = -parseFloat(num);
+
+  res.send(result.toString());
+});
 module.exports = router;
