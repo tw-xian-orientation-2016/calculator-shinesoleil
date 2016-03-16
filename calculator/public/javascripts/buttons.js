@@ -10,7 +10,7 @@ $('.btn-number').click(function () {
   $('#screen').val(screen + number);
 });
 
-function set(value) {
+function setScreen(value) {
   $('#screen').val(value);
 }
 
@@ -24,19 +24,21 @@ $(document).ready(function () {
     } else {
       service.secondNum = $('#screen').val();
 
-      switch (this.id) {
+      switch (service.mark) {
         case 'sum':
-          service.getSum(service, set);
+          service.getSum(service, setScreen);
           break;
         case 'diff':
-          service.getDiff(service, set);
+          service.getDiff(service, setScreen);
           break;
         case  'product':
-          service.getProduct(service, set);
+          service.getProduct(service, setScreen);
           break;
         case 'quotient':
-          service.getQuotient(service, set);
+          service.getQuotient(service, setScreen);
       }
+
+      service.mark = this.id;
     }
   });
 
@@ -45,17 +47,17 @@ $(document).ready(function () {
     service.secondNum = undefined;
     service.mark = undefined;
 
-    $('#screen').val('');
+    setScreen('0');
   });
 
   $('#minus').click(function () {
     service.currentNum = $('#screen').val();
-    service.getMinus(set);
+    service.getMinus(setScreen);
   })
 
   $('#percent').click(function () {
     service.currentNum = $('#screen').val();
-    service.getPercent(set);
+    service.getPercent(setScreen);
   })
 });
 
