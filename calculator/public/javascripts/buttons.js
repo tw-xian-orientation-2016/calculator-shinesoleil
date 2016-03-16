@@ -14,29 +14,29 @@ function set(value) {
   $('#screen').val(value);
 }
 
-function addButton() {
-  $('#sum').click(function () {
-    if(firstNum === null) {
-      firstNum = $('#screen').val();
-      mark = 'sum';
-    } else {
-      secondNum = $('#screen').val();
-      Service.getSum(firstNum, secondNum, setScreen());
-    }
-  })
-}
-
 $(document).ready(function () {
   var service = new Service();
 
   $('.btn-mark').click(function () {
-    if(service.firstNum === undefined) {
+    if (service.firstNum === undefined) {
       service.firstNum = $('#screen').val();
-      service.mark = 'sum';
+      service.mark = this.id;
     } else {
       service.secondNum = $('#screen').val();
 
-      service.getSum(service, set);
+      switch (this.id) {
+        case 'sum':
+          service.getSum(service, set);
+          break;
+        case 'diff':
+          service.getDiff(service, set);
+          break;
+        case  'product':
+          service.getProduct(service, set);
+          break;
+        case 'quotient':
+          service.getQuotient(service, set);
+      }
     }
   });
 
@@ -53,7 +53,7 @@ $(document).ready(function () {
     service.getMinus(set);
   })
 
-  $('#percent').click(function() {
+  $('#percent').click(function () {
     service.currentNum = $('#screen').val();
     service.getPercent(set);
   })
