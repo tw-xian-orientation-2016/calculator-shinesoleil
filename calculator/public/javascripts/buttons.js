@@ -1,23 +1,32 @@
-$('.btn-number').click(function () {
-  var number = this.id;
-  var screen = $('#screen').val();
 
-  if (number === 'point') {
-    number = '.';
-  }
-
-
-  $('#screen').val(screen + number);
-});
 
 function setScreen(value) {
   $('#screen').val(value);
 }
 
 $(document).ready(function () {
+  var newNumber = true;
   var service = new Service();
 
+  $('.btn-number').click(function () {
+    var number = this.id;
+    var screen = $('#screen').val();
+
+    if (number === 'point') {
+      number = '.';
+    }
+
+    if(newNumber === true) {
+      newNumber = false;
+      $('#screen').val(number);
+    } else {
+      $('#screen').val(screen + number);
+    }
+  });
+
   $('.btn-mark').click(function () {
+    newNumber = true;
+
     if (service.firstNum === undefined) {
       service.firstNum = $('#screen').val();
       service.mark = this.id;
@@ -41,6 +50,8 @@ $(document).ready(function () {
       service.mark = this.id;
     }
   });
+
+
 
   $('#ac').click(function () {
     service.firstNum = undefined;
