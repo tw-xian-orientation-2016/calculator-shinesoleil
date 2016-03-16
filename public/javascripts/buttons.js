@@ -42,6 +42,7 @@ $(document).ready(function () {
 
   $('.btn-mark').on('click', function () {
     isNewNumber = true;
+    var triggerButton = 'mark';
 
     if (service.firstNum === undefined) {
       service.firstNum = $('#screen').val();
@@ -51,16 +52,16 @@ $(document).ready(function () {
 
       switch (service.mark) {
         case 'sum':
-          service.getSum(service, setScreen);
+          service.getSum(service, triggerButton, setScreen);
           break;
         case 'diff':
-          service.getDiff(service, setScreen);
+          service.getDiff(service, triggerButton, setScreen);
           break;
         case  'product':
-          service.getProduct(service, setScreen);
+          service.getProduct(service, triggerButton,setScreen);
           break;
         case 'quotient':
-          service.getQuotient(service, setScreen);
+          service.getQuotient(service,triggerButton, setScreen);
       }
 
       service.mark = this.id;
@@ -68,6 +69,8 @@ $(document).ready(function () {
   });
 
   $('#equal').on('click', function () {
+
+    var triggerButton = 'equal';
     if (service.firstNum === undefined) {
 
     } else {
@@ -75,16 +78,16 @@ $(document).ready(function () {
 
       switch (service.mark) {
         case 'sum':
-          service.getSum(service, setScreen);
+          service.getSum(service, triggerButton, setScreen);
           break;
         case 'diff':
-          service.getDiff(service, setScreen);
+          service.getDiff(service, triggerButton, setScreen);
           break;
         case  'product':
-          service.getProduct(service, setScreen);
+          service.getProduct(service, triggerButton, setScreen);
           break;
         case 'quotient':
-          service.getQuotient(service, setScreen);
+          service.getQuotient(service, triggerButton, setScreen);
       }
       isNewNumber = true;
     }

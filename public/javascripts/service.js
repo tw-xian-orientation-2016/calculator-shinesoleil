@@ -5,50 +5,66 @@ function Service() {
   this.currentNum;
 };
 
-Service.prototype.getSum = function (service, callback) {
+Service.prototype.getSum = function (service, triggerButton, callback) {
   $.ajax({
       type: 'POST',
       url: '/sum',
       data: {firstNum: this.firstNum, secondNum: this.secondNum}
     })
     .done(function (result) {
-      service.firstNum = result;
+      if (triggerButton == 'mark') {
+        service.firstNum = result;
+      } else {
+        service.firstNum = undefined;
+      }
       callback(result);
     });
 };
 
-Service.prototype.getDiff = function (service, callback) {
+Service.prototype.getDiff = function (service, triggerButton, callback) {
   $.ajax({
       type: 'POST',
       url: '/diff',
       data: {firstNum: this.firstNum, secondNum: this.secondNum}
     })
     .done(function (result) {
-      service.firstNum = result;
+      if (triggerButton == 'mark') {
+        service.firstNum = result;
+      } else {
+        service.firstNum = undefined;
+      }
       callback(result);
     });
 };
 
-Service.prototype.getProduct = function (service, callback) {
+Service.prototype.getProduct = function (service, triggerButton, callback) {
   $.ajax({
       type: 'POST',
       url: '/product',
       data: {firstNum: this.firstNum, secondNum: this.secondNum}
     })
     .done(function (result) {
-      service.firstNum = result;
+      if(triggerButton == 'mark') {
+        service.firstNum = result;
+      } else {
+        service.firstNum = undefined;
+      }
       callback(result);
     });
 };
 
-Service.prototype.getQuotient = function (service, callback) {
+Service.prototype.getQuotient = function (service, triggerButton, callback) {
   $.ajax({
       type: 'POST',
       url: '/quotient',
       data: {firstNum: this.firstNum, secondNum: this.secondNum}
     })
     .done(function (result) {
-      service.firstNum = result;
+      if(triggerButton == 'mark') {
+        service.firstNum = result;
+      } else {
+        service.firstNum = undefined;
+      }
       callback(result);
     });
 };
