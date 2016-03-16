@@ -9,8 +9,13 @@ a {
 
 input {
   height: 70px;
+  font-size: xx-large;
+  font-family: arial;
+  text-align: right;
 }
 
 .btn {
-  height: 70px
+  height: 70px;
+  font-size: x-large;
+  font-family: arial;
 }

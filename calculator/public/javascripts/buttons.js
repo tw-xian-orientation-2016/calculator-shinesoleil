@@ -2,6 +2,7 @@ function setScreen(value) {
   $('#screen').val(value);
 }
 
+
 $(document).ready(function () {
   var newNumber = true;
   var service = new Service();
