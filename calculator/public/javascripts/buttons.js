@@ -1,5 +1,3 @@
-
-
 function setScreen(value) {
   $('#screen').val(value);
 }
@@ -18,7 +16,7 @@ $(document).ready(function () {
       number = '.';
     }
 
-    if(newNumber === true) {
+    if (newNumber === true) {
       newNumber = false;
       $('#screen').val(number);
     } else {
