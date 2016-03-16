@@ -2,31 +2,46 @@ function setScreen(value) {
   $('#screen').val(value);
 }
 
+function createNewNumber(screenNum, newNum) {
+  if(newNum === 'point') {
+    if(screenNum.indexOf('.') !== -1) {
+      return screenNum;
+    } else {
+      if(screenNum === '') {
+        return '0.';
+      } else {
+        return screenNum + '.';
+      }
+    }
+  } else {
+    if(screenNum === '0' || screenNum === '') {
+      return newNum;
+    } else {
+      return screenNum + newNum;
+    }
+  }
+}
 
 $(document).ready(function () {
-  var newNumber = true;
+  var isNewNumber = true;
   var service = new Service();
 
   setScreen('0');
 
-  $('.btn-number').click(function () {
-    var number = this.id;
-    var screen = $('#screen').val();
+  $('.btn-number').on('click', function () {
+    var newNumber = this.id;
+    var screenNum = $('#screen').val();
 
-    if (number === 'point') {
-      number = '.';
-    }
-
-    if (newNumber === true) {
-      newNumber = false;
-      $('#screen').val(number);
+    if (isNewNumber === true) {
+      isNewNumber = false;
+      setScreen(createNewNumber('', newNumber));
     } else {
-      $('#screen').val(screen + number);
+      setScreen(createNewNumber(screenNum, newNumber));
     }
   });
 
-  $('.btn-mark').click(function () {
-    newNumber = true;
+  $('.btn-mark').on('click', function () {
+    isNewNumber = true;
 
     if (service.firstNum === undefined) {
       service.firstNum = $('#screen').val();
@@ -52,7 +67,7 @@ $(document).ready(function () {
     }
   });
 
-  $('#equal').click(function () {
+  $('#equal').on('click', function () {
     if (service.firstNum === undefined) {
 
     } else {
@@ -71,26 +86,26 @@ $(document).ready(function () {
         case 'quotient':
           service.getQuotient(service, setScreen);
       }
-      newNumber = true;
+      isNewNumber = true;
     }
   });
 
-  $('#ac').click(function () {
+  $('#ac').on('click', function () {
     service.firstNum = undefined;
     service.secondNum = undefined;
     service.mark = undefined;
 
-    newNumber = true;
+    isNewNumber = true;
 
     setScreen('0');
   });
 
-  $('#minus').click(function () {
+  $('#minus').on('click', function () {
     service.currentNum = $('#screen').val();
     service.getMinus(setScreen);
   })
 
-  $('#percent').click(function () {
+  $('#percent').on('click', function () {
     service.currentNum = $('#screen').val();
     service.getPercent(setScreen);
   })
