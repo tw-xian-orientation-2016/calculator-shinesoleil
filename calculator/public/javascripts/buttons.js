@@ -53,12 +53,35 @@ $(document).ready(function () {
     }
   });
 
+  $('#equal').click(function () {
+    if (service.firstNum === undefined) {
 
+    } else {
+      service.secondNum = $('#screen').val();
+
+      switch (service.mark) {
+        case 'sum':
+          service.getSum(service, setScreen);
+          break;
+        case 'diff':
+          service.getDiff(service, setScreen);
+          break;
+        case  'product':
+          service.getProduct(service, setScreen);
+          break;
+        case 'quotient':
+          service.getQuotient(service, setScreen);
+      }
+      newNumber = true;
+    }
+  });
 
   $('#ac').click(function () {
     service.firstNum = undefined;
     service.secondNum = undefined;
     service.mark = undefined;
+
+    newNumber = true;
 
     setScreen('0');
   });
