@@ -1,0 +1,21 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+input {
+  height: 70px;
+  font-size: xx-large;
+  font-family: arial;
+  text-align: right;
+}
+
+.btn {
+  height: 70px;
+  font-size: x-large;
+  font-family: arial;
+}

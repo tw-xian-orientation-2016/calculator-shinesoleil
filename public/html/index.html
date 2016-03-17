@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculator</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../stylesheets/style.css">
+</head>
+<body>
+
+<nav class="navbar navbar-default container">
+    <div class="navbar-header">
+        <a class="navbar-brand" href="#">Calculator</a>
+    </div>
+</nav>
+
+<div class="container well">
+    <div class="row">
+        <input class="col-sm-12" id="screen" readonly="readonly">
+    </div>
+</div>
+
+<div class="container well">
+    <div class="row">
+        <button class="btn btn-default col-sm-3" id="ac">AC</button>
+        <button class="btn btn-default col-sm-3" id="minus">+/-</button>
+        <button class="btn btn-default col-sm-3" id="percent">%</button>
+        <button class="btn btn-default btn-mark col-sm-3" id="quotient">÷</button>
+    </div>
+    <div class="row">
+        <button class="btn btn-default btn-number col-sm-3" id="7">7</button>
+        <button class="btn btn-default btn-number col-sm-3" id="8">8</button>
+        <button class="btn btn-default btn-number col-sm-3" id="9">9</button>
+        <button class="btn btn-default btn-mark col-sm-3" id="product">x</button>
+    </div>
+    <div class="row">
+        <button class="btn btn-default btn-number col-sm-3" id="4">4</button>
+        <button class="btn btn-default btn-number col-sm-3" id="5">5</button>
+        <button class="btn btn-default btn-number col-sm-3" id="6">6</button>
+        <button class="btn btn-default btn-mark col-sm-3" id="diff">-</button>
+    </div>
+    <div class="row">
+        <button class="btn btn-default btn-number col-sm-3" id="1">1</button>
+        <button class="btn btn-default btn-number col-sm-3" id="2">2</button>
+        <button class="btn btn-default btn-number col-sm-3" id="3">3</button>
+        <button class="btn btn-default btn-mark col-sm-3" id="sum">+</button>
+    </div>
+    <div class="row">
+        <button class="btn btn-default btn-number col-sm-6" id="0">0</button>
+        <button class="btn btn-default btn-number col-sm-3" id="point">.</button>
+        <button class="btn btn-default col-sm-3" id="equal">=</button>
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<script src="../javascripts/service.js"></script>
+<script src="../javascripts/buttons.js"></script>
+<script src="../javascripts/index.js"></script>
+
+</body>
+</html>
